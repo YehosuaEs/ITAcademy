@@ -1,0 +1,31 @@
+.weather {
+    font-display: linear-gradient(to right top, #ff4e50, #ff713e, #ff932b, #ffb41d, #f9d423);
+}
+.container {
+    text-align: center;
+    margin: 50px;
+    background-color: #6502D8;
+
+}
+
+.titulo{ 
+    background-color: #6502D8;
+    color: white;
+    padding: 50px;
+}
+
+.container_joke{
+    color: white;
+    font-size: 24px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.boton_next {
+margin: 50px;
+}
+
+.estrellas {
+    margin: 20px;
+    font-size: 50px;
+}
