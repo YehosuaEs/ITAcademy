@@ -3,21 +3,20 @@ let getJoke = document.getElementById('boton');
 let writeJoke = document.getElementById('result')
 
 //Ejercicio 1 y 2
-getJoke.addEventListener('click', gettingJoke);
+//getJoke.addEventListener('click', gettingJoke);
+getJoke.addEventListener('click', dosChistes);
 
-//Ejercicio 4
-//let temperatura = document.getElementById('temp');
-/* let iconTempera = document.getElementById('description'); */
-//let ciudad = document.getElementById('location');  
-let temperatura = document.querySelector('.temp');
-/* let iconTempera = document.querySelector('.description'); */
-let ciudad = document.querySelector('.location');  
-
+// Ejercicio 3
 let arrayLikes = [];
 let objectJoke = {};
 
-/* ------------- Metodo para mostrar el Joke despues de clickear el boton "Next Joke" ---------- */
+//Ejercicio 4
+//weather();
+let temperatura = document.querySelector('.temp');
+let descricionTemp = document.querySelector('.description');
+let ciudad = document.querySelector('.location');  
 
+/* -----Ejercicio 1 y 2------- */
 async function gettingJoke() {
     let response = await fetch ('https://icanhazdadjoke.com/', {
         method: 'GET',
@@ -28,11 +27,13 @@ async function gettingJoke() {
 
     let jokeJsonObject = await response.json();
     //Ejercicio 1 
-    console.log(jokeJsonObject.joke)
+    //console.log(jokeJsonObject.joke)
     //Ejercicio 2
     writeJoke.innerHTML = jokeJsonObject.joke;
-    /* sacando el joke en texto para subirlo al array de jokes para el ejercicio 3 */
+    //Ejercicio 3 (parte)
     objectJoke = jokeJsonObject.joke;
+
+
         
     /* ---Ejemplo de como hacer el fetch de otra forma --- */
     /* fetch ('https://icanhazdadjoke.com/', {
@@ -63,24 +64,41 @@ function pushPunctuation(puntos) {
 }
 
 /* ----Ejercicio 4 ------ */
-
-function weather() {
-  var key = 'abf9db145643b62ab1718acb0f458813';
+async function weather(){
+  let key = 'abf9db145643b62ab1718acb0f458813';
   fetch('https://api.openweathermap.org/data/2.5/weather?q=Barcelona,spain&appid=' + key)  
-  .then(function(resp) { return resp.json() }) // Convert data to json
-  .then(function(data) {
-    console.log(data);
-    var celcius = Math.round(parseFloat(data.main.temp)-273.15);
+  .then (async(response) => {
+    const dataTemp = await response.json()
+    //console.log(dataTemp.main.temp)
+    let celcius = Math.round(parseFloat(dataTemp.main.temp)-273.15);
     temperatura.innerHTML = celcius + 'º';
-    /* iconTempera.innerHTML = data.weather[0].icon; */
-    ciudad.innerHTML = data.name;
-
+    descricionTemp.innerHTML = dataTemp.weather[0].description;
+    ciudad.innerHTML = dataTemp.name;   
   })
-  .catch(function() {
-    // catch any errors
-  });
-}
-
+} 
 window.onload = function() {
   weather(); 
 }  
+
+/* ----- Ejercicio 5 ---- */
+async function masJokes(){
+    fetch('https://api.chucknorris.io/jokes/random')
+    .then ( async(response) => {
+      const data = await response.json()
+      //console.log(data.value)
+      writeJoke.innerHTML = data.value; 
+      objectJoke = data.value;
+
+    })
+}
+
+
+function dosChistes() {
+  let arrayApis = ['norris', 'dad'];
+  let aleatorio = arrayApis[Math.floor(Math.random() * arrayApis.length)];
+  if (aleatorio == 'norris') {
+    masJokes();
+  } else {
+    gettingJoke();
+  }
+} 
