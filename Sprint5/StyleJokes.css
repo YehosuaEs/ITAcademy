@@ -1,11 +1,8 @@
-.weather {
-    font-display: linear-gradient(to right top, #ff4e50, #ff713e, #ff932b, #ffb41d, #f9d423);
-}
+
 .container {
     text-align: center;
     margin: 50px;
     background-color: #6502D8;
-
 }
 
 .titulo{ 

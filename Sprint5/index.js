@@ -92,7 +92,6 @@ async function masJokes(){
     })
 }
 
-
 function dosChistes() {
   let arrayApis = ['norris', 'dad'];
   let aleatorio = arrayApis[Math.floor(Math.random() * arrayApis.length)];
