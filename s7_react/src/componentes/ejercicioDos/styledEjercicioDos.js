@@ -5,6 +5,7 @@ export const Bloque = styled.div`
 border-radius: 30px;
 border: 3px solid #252626;
 margin: auto;
+margin-top: 60px;
 text-align: center;
 background-color: #ebeff5;
 width: 700px;
@@ -26,7 +27,7 @@ export const OpcionLabel = styled.label`
 cursor: pointer;
 
     ${props => props.estilo === "extrasWeb" &&`
-    margin: 20px;
+    margin: 10px;
    
     `}
 `;
@@ -61,8 +62,8 @@ cursor: pointer;
     ${props => props.estilo === 'extrasWeb' && `
         border: 0px solid #f5f7fa;
         width: 50px;
-        height: 35px;
-        margin: 10px;
+        height: 45px;
+        margin: 5px;
         padding: 5px;
         font-weight: 500;
         box-shadow: 2px 5px 5px 0 rgb(209, 209, 209);
@@ -76,11 +77,12 @@ border: 0px solid green;
 width: 50px;
 height: 50px;
 color: white;
-padding: 5px;
+margin-top: 10px;
 display: inline-block;
-font-size: 35px;
+font-size: 30px;
 font-weight: 900;
 cursor: pointer;
+text-align: center;
 box-shadow: 2px 2px 2px 2px rgb(209, 209, 209);
 
 

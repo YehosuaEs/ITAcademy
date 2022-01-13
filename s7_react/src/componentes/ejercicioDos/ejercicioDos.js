@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { Bloque, OpcionesBox, Opciones, OpcionLabel , Total, Panell, Input, Boton } from './styledEjercicioDos';
-/* import {useLocalStorage} from '../../hooks/UseLocalStorage'; */
+import {useLocalStorage} from '../../hooks/UseLocalStorage';
 
 function EjercicioDosyTres() {
-/* --------Set y Handle WEB ---------------*/
-  const [checkedWeb, setCheckedWeb] = useState(false);
+  /* --------Set y Handle WEB ---------------*/
+  /* const [checkedWeb, setCheckedWeb] = useState(false); */
+  const [checkedWeb, setCheckedWeb] = useLocalStorage('checkWeb',false);
   const handleClickWeb = () =>  {setCheckedWeb (!checkedWeb)};
-/* --------Set y Handle Paginas e Idiomas---------- */
+  /* --------Set y Handle Paginas e Idiomas---------- */
   /* const [datos, setDatos ] = useState({
     paginas:0, 
     idiomas:0
@@ -18,8 +19,9 @@ function EjercicioDosyTres() {
         [event.target.name] : event.target.value 
       })
   }; */
-/* ---------Set y Handle Inputs------------ */
-  const [dataPag, setDataPag]= useState(0)  
+  /* ---------Set y Handle Inputs Pag & Idiomas------------ */
+  /* const [dataPag, setDataPag]= useState(0)  */ 
+  const [dataPag, setDataPag]= useLocalStorage('numPag',0)  
   const handleInputPaginas = (e) => {
     const num = e.target.value;
       if (num === ""){
@@ -34,7 +36,8 @@ function EjercicioDosyTres() {
       setDataPag(parsedNum);
   };
 
-  const [dataIdiomas, setDataIdiomas]= useState(0)
+  /* const [dataIdiomas, setDataIdiomas]= useState(0) */
+  const [dataIdiomas, setDataIdiomas]= useLocalStorage('numIdiomas',0)
   const handleInputIdioma = (e) => {
     const num = e.target.value;
       if (num === ""){
@@ -63,18 +66,20 @@ function EjercicioDosyTres() {
   /* -------Handle + y - Idiomas  ------------*/
   const handleBotonMasI = () => {
       setDataIdiomas(dataIdiomas + 1) 
-};
+  };
   const handleBotonMenosI = () => {
     dataIdiomas > 0
       ? setDataIdiomas(dataIdiomas - 1)
       : alert("ATENCION: el numero no puede ser negativo")
   };
 
-/* -------Set y Handle SEO ------------*/
-  const [checkedSeo, setCheckedSeo] = useState(false);
+  /* -------Set y Handle SEO ------------*/
+  /* const [checkedSeo, setCheckedSeo] = useState(false); */
+  const [checkedSeo, setCheckedSeo] = useLocalStorage('checkSeo',false);
   const handleClickSeo  = () => {setCheckedSeo(!checkedSeo)};
   /* -----Set y Handle ADS ---------*/
-  const [checkedAds, setCheckedAds] = useState(false);
+  /* const [checkedAds, setCheckedAds] = useState(false); */
+  const [checkedAds, setCheckedAds] = useLocalStorage('checkAds',false);
   const handleClickAds = () => {setCheckedAds(!checkedAds)};
 
   /* Set y UseEffect Total */
@@ -83,6 +88,8 @@ function EjercicioDosyTres() {
   const precioPaginas = dataPag * 30;
   const precioIdiomas = dataIdiomas * 30; 
   
+  const[savePanell, SetSavePanell]= useState({}); 
+ 
   useEffect(() => {
     const precioWeb = checkedWeb ? 500 : 0;
     const precioSeo = checkedSeo ? 300 : 0;    
@@ -90,10 +97,19 @@ function EjercicioDosyTres() {
     precioWeb === 500
         ? setPrecio(precioWeb + precioSeo + precioAds + precioPaginas + precioIdiomas)
         : setPrecio(precioWeb + precioSeo + precioAds)
-    }, [ checkedWeb, checkedSeo, checkedAds, precioPaginas, precioIdiomas]
+    
+        SetSavePanell({checkedWeb, dataIdiomas, dataPag, checkedSeo, checkedAds, precio}) 
+
+    }, [checkedWeb, checkedSeo, checkedAds, precioPaginas, precioIdiomas, dataIdiomas, dataPag, precio]
   );
-
-
+  
+  /* ----------LocalStorage--------- */
+ const setItems = () => {
+    localStorage.setItem('InfoPanel',JSON.stringify(savePanell))
+  }       
+ useEffect(() => {
+    setItems()
+  }) 
 
   return (
     <Bloque>
@@ -109,7 +125,7 @@ function EjercicioDosyTres() {
             />
             <OpcionLabel htmlFor="web"> Una página web = 500€</OpcionLabel>
                 <Panell display={checkedWeb ? 'block' : 'none'}>
-                    <OpcionLabel estilo ={"extrasWeb"} htmlFor="paginas"> Número de páginas</OpcionLabel>
+                    <OpcionLabel estilo={"extrasWeb"} htmlFor="paginas"> Número de páginas</OpcionLabel>
                     <Boton type="button"onClick={handleBotonMenosP}> - </Boton>
                     <Input 
                         estilo={"extrasWeb"}
@@ -167,7 +183,6 @@ function EjercicioDosyTres() {
           </Total>
 
     </Bloque>
-
   )
 };
 
