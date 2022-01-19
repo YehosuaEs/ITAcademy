@@ -126,7 +126,7 @@ function EjercicioDosyTres() {
             <OpcionLabel htmlFor="web"> Una página web = 500€</OpcionLabel>
                 <Panell display={checkedWeb ? 'block' : 'none'}>
                     <OpcionLabel estilo={"extrasWeb"} htmlFor="paginas"> Número de páginas</OpcionLabel>
-                    <Boton type="button"onClick={handleBotonMenosP}> - </Boton>
+                    <Boton type="button" onClick={handleBotonMenosP}> - </Boton>
                     <Input 
                         estilo={"extrasWeb"}
                         placeholder='0'
@@ -138,8 +138,9 @@ function EjercicioDosyTres() {
                         onChange={handleInputPaginas} 
                     />
                      <Boton  type="button" onClick={handleBotonMasP} > + </Boton>
+                     <Boton className="fa fa-info" estilo={"favInfo"}></Boton>
                    
-                    <OpcionLabel estilo ={"extrasWeb"} htmlFor="idiomas"> Número de idiomas</OpcionLabel>
+                    <OpcionLabel estilo={"extrasWeb"} htmlFor="idiomas"> Número de idiomas</OpcionLabel>
                     <Boton type="button" onClick={handleBotonMenosI}> - </Boton>
                     <Input 
                         estilo={"extrasWeb"}
@@ -152,6 +153,7 @@ function EjercicioDosyTres() {
                         onChange={handleInputIdioma}
                     />
                     <Boton type="button" onClick={handleBotonMasI}> + </Boton>
+                    <Boton className="fa fa-info" estilo={"favInfo"}></Boton>
                 </Panell>
           </Opciones>
 

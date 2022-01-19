@@ -27,8 +27,9 @@ export const OpcionLabel = styled.label`
 cursor: pointer;
 
     ${props => props.estilo === "extrasWeb" &&`
-    margin: 10px;
-   
+    padding: 5px;
+    margin: 5px;
+
     `}
 `;
 
@@ -61,8 +62,8 @@ cursor: pointer;
 
     ${props => props.estilo === 'extrasWeb' && `
         border: 0px solid #f5f7fa;
-        width: 50px;
-        height: 45px;
+        width: 60px;
+        height: 35px;
         margin: 5px;
         padding: 5px;
         font-weight: 500;
@@ -73,13 +74,12 @@ cursor: pointer;
 export const Boton = styled.button`
 background-color: #e3681b; 
 border-radius: 5px;
-border: 0px solid green;
-width: 50px;
-height: 50px;
+border: none;
+width: 40px;
 color: white;
-margin-top: 10px;
+margin-top: 0px;
 display: inline-block;
-font-size: 30px;
+font-size: 25px;
 font-weight: 900;
 cursor: pointer;
 text-align: center;
@@ -93,8 +93,30 @@ box-shadow: 2px 2px 2px 2px rgb(209, 209, 209);
         box-shadow: 0 5px 10px 0 rgb(209, 209, 209);
     }
 
+
+    ${props => props.estilo === 'favInfo' && `
+        background-color: white;    
+        font-size: 10px;
+        border-radius: 50px;
+        width: 19px;
+        height: 19px;
+        margin-left: 5px;
+        color: black;
+        display: inline;
+
+
+            &:hover {
+                color: white;
+                background: gray;
+                box-shadow: 0 5px 10px 0 rgb(209, 209, 209);
+            }
+    `}
 `;
 
+
+/* 
+
+ */
 
 export const Total = styled.div` 
 font-weight: 600;
