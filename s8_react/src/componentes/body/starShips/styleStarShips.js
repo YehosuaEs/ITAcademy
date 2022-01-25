@@ -1,9 +1,11 @@
 import styledComponents from "styled-components";
+import fondo from "../home/fondo.webp"
 
 
 
 export const Cuerpo = styledComponents.div`
     background-color: black;
+    background-image: url(${fondo});
     padding: 50px 0px;
     display: flex;
     flex-direction: column;
