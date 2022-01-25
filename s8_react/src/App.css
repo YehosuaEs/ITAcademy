@@ -1,31 +1,36 @@
 .App {
+  background-color: #bf5b5b;
+  color: white;
   text-align: center;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
+.App-starWarsLogo {
+  height: 17vmin;  
   pointer-events: none;
+  margin:0px;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 25s linear;
   }
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1d1d1e;
   min-height: 100vh;
   display: flex;
+  color: white;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #222222;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +41,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+ */

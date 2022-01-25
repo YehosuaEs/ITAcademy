@@ -1,0 +1,28 @@
+.Nav {
+    background-color: rgb(0, 0, 0);
+    /* align-items: flex-star; */
+    /* flex-direction:column; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-evenly; */
+    /* display: flex;  */
+    
+}
+
+.icono {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 3vmin;
+}
+
+.StarWarsLogo {
+  max-width: 20vmin;
+  background-color: rgb(191, 191, 191)
+}
+
+.form-control {
+    background-color: cadetblue;
+    
+}
+
+
+
