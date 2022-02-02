@@ -1,4 +1,4 @@
-import { Fragment, useState} from 'react';
+import { Fragment, useEffect, useState} from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './componentes/navegador/nav.js';
@@ -21,7 +21,7 @@ function App() {
   const [error, setError] = useState("");
 
   const Login = (details) => {
-    if (details.email !== "" ) {
+    if (details.email != "" ) {
       setUser(true)
       setUsuario ({
         email: details.email,
@@ -31,11 +31,11 @@ function App() {
       setError("Necesitas intruducir un email y una contraseña.")
     }
   }
-/* 
+
   const Logout = () => {
     console.log("logout");
     setUser({email:"",  password: ""})
-  } */
+  }
 
   return (
     <Router>
@@ -45,7 +45,7 @@ function App() {
            <NavBar> </NavBar>
             <Routes> 
             <Route path="/*"  element={<Navigate to={user ? "/" : "/login" }/>  }/> 
-            {(usuario.email !== "") ? ( 
+            {(usuario.email != "") ? ( 
               <> 
                 <Route path="/starShips/:index" element={<Nave/>}></Route>
                 <Route path="/" element={<Home/>} />

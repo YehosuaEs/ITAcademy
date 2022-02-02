@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { LoginBody, Cuerpo, Formulario, ContenidoLogIn, Texto  } from "./styleLogin";
+import { LoginBody, Cuerpo, Formulario, Boton, ContenidoLogIn, Texto  } from "./styleLogin";
 import DisneyStarWars from "./DisneyStarWars.png"
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +51,7 @@ function LoginForm ({/* authenticate,  */ Login, error } )  {
                             </div>
 
                             <Texto>SIGN IN</Texto>
-                            {(error !== "" ) ? (<Texto estilo={"AlertEmail"}>{error}</Texto>) : ""}
+                            {(error != "" ) ? (<Texto estilo={"AlertEmail"}>{error}</Texto>) : ""}
                             <div>
                                 <ContenidoLogIn 
                                     type="email" 

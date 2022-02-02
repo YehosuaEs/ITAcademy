@@ -1,6 +1,6 @@
-import {Fragment} from "react";
+import react, {Fragment, useEffect, useState} from "react";
 import { useParams, useLocation } from "react-router-dom";
-
+import axios from "axios";
 import {Bloque, Lista, Cuerpo, ImgShip} from "./styleStarShips"
 
 

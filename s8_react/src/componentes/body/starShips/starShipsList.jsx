@@ -26,7 +26,7 @@ const StarShipsList = () => {
             setStarShips([...starShips, ...res.data.results])
         }
         NavesList();
-    },[apiPage, starShips]);
+    },[apiPage]);
 /* --------------  Scroll --------------- */ 
     const Next = () => {
         setApiPage((prevValue) => prevValue  + 1);
