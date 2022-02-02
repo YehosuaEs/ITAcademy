@@ -4,6 +4,8 @@ import "./stylesNav/Nav.css"
 import Iconos from "./iconos";
 import Logo from "./logo";
 import Menu from "./menu";
+import LoginSearch from "./searchLogin";
+
 
 
 function NavBar() {
@@ -13,32 +15,19 @@ function NavBar() {
           
             <div className="Nav">
                 <div className="row">
+                    <div className="col-lg-1"></div>
                     {/* ----Iconos Redes Sociales */}
-                    <div className="col-sm-1"></div>
-                    <Iconos></Iconos>
+                    <Iconos />
                     {/* ----logo---- */}
-                    <Logo></Logo>
+                    <Logo />
                     {/* ----Busqueda y Login---- */}
-                    <div className="col-sm-3 text-center text-white mt-3">
-                        <form className="form-inline">
-                            <div className="form-inline">
-                                <div className="col-xs-3">
-                                    <input className="form-control" id="ex2" type="text"/>
-                                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                </div>
-                            </div>
-                        </form>       
-                            {/* <div class="input-group-btn">
-                                <button className="btn btn-default bg-primary" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-                            </div>         */} 
-                        Busqueda y Login
-                    </div>
-                    <div className="col-sm-1"></div>
+                    <LoginSearch />
+                    <div className="col-lg-1"></div>
                 </div>
             </div>
-            <Menu></Menu>
-           
-                
+            {/* ----Menu de navegación ---- */}
+            <Menu />
+         
         </Fragment>
     );
 };

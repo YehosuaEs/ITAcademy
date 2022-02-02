@@ -12,3 +12,4 @@ export const Barra = styled.div`
 export const Logo = styled.img`
     width: 25vmin;
 `; 
+
